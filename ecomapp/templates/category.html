@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="w3l_banner_nav_right">
+		<div class="w3l_banner_nav_right_banner4">
+			<h3>Best Deals For New Products<span class="blink_me"></span></h3>
+		</div>
+		<div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub">
+			<h3>{{category.name}}</h3>
+
+			<div class="w3ls_w3l_banner_nav_right_grid1">
+
+				{% for product in products_of_category %}
+				<div class="col-md-3 w3ls_w3l_banner_left">
+					<div class="hover14 column">
+					<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+						<div class="agile_top_brand_left_grid1">
+							<figure>
+								<div class="snipcart-item block">
+									<div class="snipcart-thumb">
+										<a href="{{product.get_absolute_url}}"><img src="{{product.image.url}}"  style="width:100px; height:150px" class="img-responsive" />
+											<p>{{product.title}}</p>
+										</a>
+										<h4 class="pull-left">{{product.price}} KZT</h4>
+										<!--<p>{{product.description}}</p>-->
+									</div>
+
+								</div>
+							</figure>
+						</div>
+					</div>
+					</div>
+				</div>
+				{% endfor %}
+
+
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+
+{% endblock content %}

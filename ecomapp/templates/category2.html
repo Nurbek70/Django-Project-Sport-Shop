@@ -1,0 +1,76 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+<main>
+
+
+
+      <!-- BEGIN content_for_index -->
+  <div id="shopify-section-1543576903049" class="shopify-section">
+    <div class="hero-slider-with-category-container mt-35 mb-35">
+      <div class="container">
+        <div class="row">
+
+        <div class="col-lg-3 col-md-12">
+          <div class="hero-side-category">
+            <div class="category-toggle-wrap">
+              <button class="category-toggle"> <span class="arrow_carrot-right_alt2 mr-2"></span> ALL CATEGORIES</button>
+            </div>
+            <nav class="category-menu" style="display: block;">
+              <ul>
+                {% for category in categories %}
+                  <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+            </div>
+        </div>
+
+
+        <div class="col-lg-9 col-md-12">
+					<div class="col-sm-12">
+					  <h2>{{category.name}}</h2>
+					  <hr>
+						</div>
+          <div class="shop-product-wrap grid row no-gutters mb-35">
+
+            {% for product in products_of_category %}
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="14362508197952 gf-product shop-grid-view-product multisale-slider-product text-center">
+                <div class="image">
+                  <a href="{{product.get_absolute_url}}">
+                    <img class="mini_img" src="{{product.image.url}}" style="width:100px">
+                  </a>
+
+                </div>
+
+              <div class="product-content">
+                <div class="product-categories">
+                  <a href="#">{{product.category}}</a>
+                </div>
+                <h3 class="product-title product_title"><a href="{{product.get_absolute_url}}">{{product.title}}</a></h3>
+                <div class="price-box">
+                  <span class="discounted-price"><span class="money">{{product.price}} ₸</span></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          {% endfor %}
+
+  </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+
+
+{% endblock content %}
